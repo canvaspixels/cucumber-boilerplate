@@ -2,6 +2,7 @@ import { defineSupportCode } from 'cucumber';
 
 import checkClass from '../support/check/checkClass';
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
+import checkIfElementExists from '../support/lib/checkIfElementExists';
 import checkIsEmpty from '../support/check/checkIsEmpty';
 import checkContainsText from '../support/check/checkContainsText';
 import checkCookieContent from '../support/check/checkCookieContent';
@@ -34,6 +35,11 @@ defineSupportCode(({ Then }) => {
     Then(
         /^I expect that the title is( not)* "([^"]*)?"$/,
         checkTitle
+    );
+    
+    Then(
+        /^I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times$/,
+        checkIfElementExists
     );
 
     Then(
